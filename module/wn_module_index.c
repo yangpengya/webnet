@@ -28,8 +28,7 @@
 
 #ifdef RT_USING_DFS
 #if RT_VER_NUM >= 0x40100
-#include <dirent.h> /* fix DIR */
-#include <fcntl.h> /* fix S_IFDIR */
+#include <dfs.h>
 #else
 #include <dfs_posix.h>
 #endif /*RT_VER_NUM >= 0x40100*/

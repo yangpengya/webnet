@@ -32,9 +32,8 @@
 
 #ifdef RT_USING_DFS
 #if RT_VER_NUM >= 0x40100
-#include <fcntl.h> /* fix O_RDONLY */
-#include <unistd.h> /* fix lseek */
-#include <stdlib.h> /* fix atoi */
+#include <dfs.h>
+#include <unistd.h>
 #else
 #include <dfs_posix.h>
 #endif /*RT_VER_NUM >= 0x40100*/
@@ -519,7 +518,7 @@ static const char *default_files[] =
  */
 int webnet_module_handle_uri(struct webnet_session *session)
 {
-    int result, fd;
+    int result;
     char *full_path;
     rt_uint32_t index;
     struct webnet_request *request;

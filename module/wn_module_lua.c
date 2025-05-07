@@ -28,6 +28,8 @@
 #include <wn_module.h>
 
 #ifdef RT_USING_DFS
+#include <dfs.h>
+#else
 #include <dfs_posix.h>
 #endif
 

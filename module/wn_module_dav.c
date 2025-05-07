@@ -27,7 +27,12 @@
 #include <wn_utils.h>
 
 #ifdef RT_USING_DFS
+#if RT_VER_NUM >= 0x40100
+#include <dfs.h>
+#include <unistd.h>
+#else
 #include <dfs_posix.h>
+#endif /*RT_VER_NUM >= 0x40100*/
 #endif
 
 #define DBG_ENABLE
@@ -444,7 +449,7 @@ static void _webnet_module_put_handle(struct webnet_session* session, int event)
         }
 
         //write data
-        if (length > 0 && session->buffer != NULL)
+        if (length > 0)
         {
             put_session->entry->put_write(session, (char*)session->buffer, length);
         }

@@ -27,7 +27,8 @@
 
 #ifdef RT_USING_DFS
 #if RT_VER_NUM >= 0x40100
-#include <fcntl.h> /* fix O_WRONLY */
+#include <dfs.h>
+#include <unistd.h>
 #else
 #include <dfs_posix.h>
 #endif /*RT_VER_NUM >= 0x40100*/

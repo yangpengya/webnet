@@ -25,11 +25,14 @@
 #include <string.h>
 
 #include <rtthread.h>
+#ifdef RT_USING_DFS
 #if RT_VER_NUM >= 0x40100
-#include <fcntl.h> /* 当需要使用文件操作时，需要包含这个头文件 */
+#include <dfs.h>
+#include <unistd.h>
 #else
 #include <dfs_posix.h>
 #endif /*RT_VER_NUM >= 0x40100*/
+#endif
 
 #include <webnet.h>
 #include <wn_module.h>
